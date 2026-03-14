@@ -1,0 +1,61 @@
+.claim-row-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-radius: 10px;
+  transition: border-color 0.15s;
+}
+
+.claim-row-link:hover .claim-row {
+  border-color: #0f4ccf;
+}
+
+.claim-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.claim-row__id {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #0f172a;
+  min-width: 5rem;
+}
+
+.claim-row__flight {
+  font-weight: 500;
+  min-width: 4.5rem;
+}
+
+.claim-row__regulation {
+  font-size: 0.82rem;
+  color: #475569;
+  min-width: 4rem;
+}
+
+.claim-row__payout {
+  margin-left: auto;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.claim-row-link:focus-visible .claim-row {
+  border-color: #0f4ccf;
+}
+
+@media (max-width: 768px) {
+  .claim-row {
+    flex-wrap: wrap;
+  }
+
+  .claim-row__id,
+  .claim-row__flight,
+  .claim-row__regulation {
+    min-width: auto;
+  }
+}

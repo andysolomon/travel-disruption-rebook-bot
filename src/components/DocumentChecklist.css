@@ -1,0 +1,42 @@
+.doc-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.doc-checklist__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: #0f172a;
+}
+
+.doc-checklist__icon {
+  font-size: 0.9rem;
+  width: 1.2rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.doc-checklist__item--provided .doc-checklist__icon {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.doc-checklist__name--done {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+.doc-checklist__badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background: #fef3c7;
+  color: #92400e;
+}

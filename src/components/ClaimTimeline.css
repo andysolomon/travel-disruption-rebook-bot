@@ -1,0 +1,57 @@
+.claim-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.claim-timeline__item {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 1.25rem;
+}
+
+.claim-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.claim-timeline__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #94a3b8;
+  flex-shrink: 0;
+  margin-top: 3px;
+  z-index: 1;
+}
+
+.claim-timeline__dot--active {
+  background: #0f4ccf;
+  box-shadow: 0 0 0 3px rgba(15, 76, 207, 0.2);
+}
+
+.claim-timeline__line {
+  position: absolute;
+  left: 5px;
+  top: 15px;
+  bottom: 0;
+  width: 2px;
+  background: #cbd5e1;
+}
+
+.claim-timeline__content {
+  margin-left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.claim-timeline__label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.claim-timeline__date {
+  font-size: 0.78rem;
+  color: #64748b;
+}

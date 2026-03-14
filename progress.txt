@@ -1,0 +1,61 @@
+2026-03-13
+- Created project scaffold: travel-disruption-rebook-bot (React + TS + Vite).
+- Captured idea details from authenticated IdeaBrowser session.
+- Replaced default starter docs with product-specific README.
+- Added IMPLEMENTATION_PLAN.md with phased roadmap.
+- Milestone 1 (Foundation) complete:
+  - Installed react-router v7.
+  - Created typed domain models (types/): common, flight, disruption, claim, traveler.
+  - Created mock seed data (data/): flights, disruptions, claims, traveler.
+  - Created service layer (services/): api, flights, disruptions, claims, traveler.
+  - Created reusable components: Nav, StatusPill, DisruptionBadge, FlightCard, ClaimRow.
+  - Created pages: HomePage, DashboardPage, ClaimsPage, SettingsPage.
+  - Rewired App.tsx as layout shell with Nav + Routes.
+  - Wrapped App in BrowserRouter.
+  - Build, lint, and all 4 routes verified working with mock data.
+- Milestone 2 (Disruption Detection + EU261 Eligibility Engine) complete:
+  - Added cause? and noticeDate? fields to Disruption type.
+  - Created airport-distances.ts: static distance table for 7 airport pairs + long-haul test pairs.
+  - Created extraordinary-circumstances.ts: list + lookup for EU261 exemptions.
+  - Created eu261.ts: calculatePayout (3-tier by distance), assessEligibility (cancellation/delay/missed-connection/downgrade rules).
+  - Created detection.ts: detectDisruption, detectMissedConnections, detectAllDisruptions — derives disruptions from flight status data.
+  - Created mock-scenarios.ts: 4 scenarios (baseline, weather, advance-notice, short-delay) with applyScenario pure function.
+  - Rewired disruptions.ts to use detection engine instead of hardcoded mock disruptions.
+  - Created EligibilityCard component: status pill, regulation label, payout, human-readable reason.
+  - Enhanced DashboardPage: scenario selector dropdown, EligibilityCard integration, delay minutes display.
+  - Build and lint pass cleanly.
+- Milestone 3 (Rebooking Intelligence) complete:
+  - Created rebook types (types/rebook.ts): ScoreComponent, RebookScore, RebookOption, RawAlternative.
+  - Created mock-alternatives.ts: 3 route sets (LHR→BER 5 opts, CDG→LHR 4 opts, MXP→LHR 3 opts).
+  - Created scoring.ts: 6-component weighted scoring engine (airline pref, alliance, cabin, layover, departure proximity, price) with deterministic tiebreaking.
+  - Created rebook.ts: getEffectiveRoute + getRebookOptions orchestration.
+  - Created RebookOptionsCard component: ranked list with rank badge, cabin pill, score bar, collapsible explainability panel, blue accent for top option.
+  - Integrated into DashboardPage: fetches traveler preferences, computes rebook options via useMemo, renders below EligibilityCard.
+  - Build and lint pass cleanly.
+- Milestone 4 (Claims Workflow) complete:
+  - Extended Claim type with PayoutConfidence and DocumentRequirement fields.
+  - Updated mock-claims with confidence and requiredDocuments data.
+  - Created claim-generator.ts: getRequiredDocuments (by disruption type), assessPayoutConfidence (extraordinary/borderline/clear), generateClaimDraft.
+  - Created ClaimsContext + useClaims hook for cross-page claims state sharing, seeded with mock data.
+  - Created ClaimTimeline component: vertical timeline with active dot styling.
+  - Created DocumentChecklist component: check/circle icons, line-through for provided, "Required" badge.
+  - Created ConfidenceBand component: colored card (green/yellow/red) with payout + confidence label.
+  - Created ClaimDetailPage: header with flight/regulation/status/confidence, timeline, document checklist.
+  - Updated ClaimsPage to use context instead of async service.
+  - Updated ClaimRow with Link navigation and hover border accent.
+  - Added "Generate Claim" button to DashboardPage for eligible disruptions, with duplicate prevention.
+  - Wired ClaimsProvider into App, added /claims/:claimId route.
+  - Build and lint pass cleanly.
+- Milestone 5 (Product Polish) complete:
+  - Added global :focus-visible styles (blue outline), :focus:not(:focus-visible) reset, prefers-reduced-motion media query.
+  - Added .sr-only utility class and skeleton animation system (shimmer keyframe, skeleton-text/card/header classes).
+  - Added skip-to-main-content link in App.tsx, visually hidden until focused.
+  - Created useAnalytics hook with discriminated union event types; wired into DashboardPage, ClaimDetailPage, RebookOptionsCard.
+  - Added ARIA attributes: nav aria-label, aria-live on disruption list, aria-busy on loading states, role="list"/role="listitem" on ClaimTimeline, aria-label on DocumentChecklist.
+  - Replaced "Loading..." text with skeleton shimmer UI on DashboardPage and SettingsPage.
+  - Added responsive breakpoints (@media max-width: 768px) to all page and component CSS files.
+  - Normalized RebookOptionsCard.css: px→rem, grays→slate palette.
+  - Added visual section dividers on DashboardPage.
+  - Added keyboard focus overrides for dark-background elements (Nav active link, CTA, Generate Claim button, ClaimRow).
+  - Updated index.html: title, meta description, theme-color.
+  - Build and lint pass cleanly.

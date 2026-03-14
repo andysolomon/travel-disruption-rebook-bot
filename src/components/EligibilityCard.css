@@ -1,0 +1,45 @@
+.eligibility-card {
+  margin-top: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  background: #f8fbff;
+  border: 1px solid #e2e8f0;
+}
+
+.eligibility-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.eligibility-regulation {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #0f4ccf;
+}
+
+.eligibility-payout {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-left: auto;
+}
+
+.eligibility-reason {
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .eligibility-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .eligibility-payout {
+    margin-left: 0;
+  }
+}

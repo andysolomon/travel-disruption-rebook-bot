@@ -1,0 +1,33 @@
+.confidence-band {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.confidence-band--high {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.confidence-band--medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.confidence-band--low {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.confidence-band__amount {
+  font-size: 1rem;
+}
+
+.confidence-band__label {
+  font-size: 0.78rem;
+  font-weight: 500;
+}

@@ -1,0 +1,34 @@
+.flight-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+}
+
+.flight-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flight-card__route {
+  margin-top: 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.flight-card__times {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.flight-card__sep {
+  margin: 0 0.3rem;
+}
+
+.flight-card__airline {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}

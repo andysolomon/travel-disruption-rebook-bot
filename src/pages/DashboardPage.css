@@ -1,0 +1,148 @@
+.dashboard-page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.dashboard-page h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.6rem;
+}
+
+.dashboard-section {
+  margin-bottom: 2rem;
+}
+
+.dashboard-section h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  color: #0f172a;
+}
+
+.dashboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.trip-group {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1rem;
+  background: #f8fbff;
+}
+
+.trip-name {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.trip-legs {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.disruption-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.disruption-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+}
+
+.disruption-summary {
+  margin: 0.5rem 0 0;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.disruption-eligibility {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  color: #0f4ccf;
+  font-weight: 500;
+}
+
+.scenario-selector {
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scenario-selector label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.scenario-selector select {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.disruption-delay {
+  font-weight: 500;
+  color: #0f4ccf;
+}
+
+.empty {
+  color: #64748b;
+}
+
+.generate-claim-btn {
+  margin-top: 0.6rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #0f4ccf;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.generate-claim-btn:hover:not(:disabled) {
+  background: #0b3ba6;
+}
+
+.generate-claim-btn:disabled {
+  background: #94a3b8;
+  cursor: default;
+}
+
+.generate-claim-btn:focus-visible {
+  outline-color: #ffffff;
+  outline-offset: 3px;
+}
+
+.dashboard-section + .dashboard-section {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-page {
+    padding: 1.25rem 1rem 3rem;
+  }
+
+  .trip-legs {
+    flex-direction: column;
+  }
+
+  .scenario-selector {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

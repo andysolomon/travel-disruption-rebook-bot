@@ -1,0 +1,26 @@
+.claims-page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.claims-page h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.6rem;
+}
+
+.claims-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.empty {
+  color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .claims-page {
+    padding: 1.25rem 1rem 3rem;
+  }
+}
