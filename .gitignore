@@ -27,3 +27,6 @@ playwright-report
 *.sln
 *.sw?
 .vercel
+
+# Environment files
+.env

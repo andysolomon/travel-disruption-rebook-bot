@@ -1,10 +1,6 @@
 import type { FlightLeg, FlightStatus } from "../types/flight.ts";
 import type { ISODateTime } from "../types/common.ts";
 
-export function isRealApiAvailable(): boolean {
-  return Boolean(import.meta.env.VITE_FLIGHT_API_KEY);
-}
-
 const statusMap: Record<string, FlightStatus> = {
   active: "in-air",
   landed: "landed",
@@ -47,11 +43,8 @@ type AviationStackResponse = {
 };
 
 export async function fetchFlightLegs(flightNumber: string): Promise<FlightLeg[] | null> {
-  const apiKey = import.meta.env.VITE_FLIGHT_API_KEY;
-  if (!apiKey) return null;
-
   try {
-    const url = `https://api.aviationstack.com/v1/flights?access_key=${encodeURIComponent(apiKey)}&flight_iata=${encodeURIComponent(flightNumber)}`;
+    const url = `/api/flights?flightNumber=${encodeURIComponent(flightNumber)}`;
     const response = await fetch(url);
 
     if (!response.ok) return null;

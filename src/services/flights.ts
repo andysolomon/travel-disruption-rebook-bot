@@ -1,7 +1,7 @@
 import type { Trip } from "../types/flight.ts";
 import { mockTrips } from "../data/mock-flights.ts";
 import { simulateApi } from "./api.ts";
-import { isRealApiAvailable, fetchFlightLegs } from "./flight-api.ts";
+import { fetchFlightLegs } from "./flight-api.ts";
 
 async function enrichTripsWithLiveData(trips: Trip[]): Promise<Trip[]> {
   const enrichedTrips: Trip[] = [];
@@ -29,10 +29,7 @@ async function enrichTripsWithLiveData(trips: Trip[]): Promise<Trip[]> {
 }
 
 export async function getTrips(): Promise<Trip[]> {
-  if (isRealApiAvailable()) {
-    return enrichTripsWithLiveData(mockTrips);
-  }
-  return simulateApi(mockTrips);
+  return enrichTripsWithLiveData(mockTrips);
 }
 
 export function getTripById(id: string): Promise<Trip | undefined> {
